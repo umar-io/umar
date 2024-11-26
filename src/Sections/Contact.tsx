@@ -26,12 +26,13 @@ const Contact: React.FC = () => {
         }
     }
 
-    const sendResponse = () => {
+    const sendResponse = (e:React.FormEvent) => {
+        e.preventDefault()
         alert('....sending feedback')
     }
     const steps = [
         {
-            id: 1,
+            id: '1',
             label: 'name',
             type: 'text',
             name: 'fullname',
@@ -39,7 +40,7 @@ const Contact: React.FC = () => {
             placeholder: 'Please enter your name'
         },
         {
-            id: 2,
+            id: '2',
             label: 'email',
             type: 'email',
             name: 'email',
@@ -47,7 +48,7 @@ const Contact: React.FC = () => {
             placeholder: 'please enter your email'
         },
         {
-            id: 3,
+            id: '3',
             label: 'subject',
             type: 'text',
             name: 'subject',
@@ -55,7 +56,7 @@ const Contact: React.FC = () => {
             placeholder: 'Enter your Subject'
         },
         {
-            id: 4,
+            id: '4',
             label: 'Message',
             type: 'textarea',
             name: 'message',
@@ -64,7 +65,7 @@ const Contact: React.FC = () => {
         }
     ]
 
-    const handleChange = (e: React.MouseEvent<HTMLInputElement>) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.currentTarget;
         setFormData((prev) => ({
             ...prev,
@@ -92,7 +93,7 @@ const Contact: React.FC = () => {
                                 value={steps[currentStep].value}
                                 onChange={handleChange}
                                 required
-                                rows="3" // you can adjust the number of rows
+                                rows={3} // you can adjust the number of rows
                                 placeholder={steps[currentStep].placeholder}
                                 style={{ width: '100%', padding: '10px', marginBottom: '10px', borderRadius: '5px', border: '1px solid #ccc' }}
                             />
