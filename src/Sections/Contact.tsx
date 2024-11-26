@@ -26,7 +26,7 @@ const Contact: React.FC = () => {
         }
     }
 
-    const sendResponse = (e:React.FormEvent) => {
+    const sendResponse = (e: React.FormEvent) => {
         e.preventDefault()
         alert('....sending feedback')
     }
@@ -77,7 +77,12 @@ const Contact: React.FC = () => {
         console.log('....progress')
     }
     return (
-        <section id="contact" className="w-full flex lg:flex-row flex-col justify-between items-center gap-8 lg:py-8 lg:px-8 py-4 px-4">
+        <motion.section id="contact" className="w-full flex lg:flex-row flex-col justify-between items-center gap-8 lg:py-8 lg:px-8 py-4 px-4"
+            initial={{ scale: 0 }}
+            whileInView={{ scale: 1 }}
+            viewport={{ once: true }} // Trigger animation once when entering the viewport
+            transition={{ duration: 1 }}
+        >
             <article className="lg:w-1/2 w-full">
                 <h3 className="lg:text-4xl text-2xl font-[700]">Want to get in touch</h3>
                 <p>I'd love to hear what you're working and i would like to see how to contribute </p>
@@ -151,7 +156,7 @@ const Contact: React.FC = () => {
                     }
                 </form>
             </aside>
-        </section>
+        </motion.section>
     )
 }
 
