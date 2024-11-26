@@ -64,12 +64,10 @@ const Navbar: React.FC = () => {
   ]
 
   return (
-    <nav className="bg-white backdrop-filter shadow-lg p-6 lg:py-6 lg:px-[50px] flex items-center justify-between sticky top-0 left-0 w-full z-50 transition-all duration-300">
-      <h3 className="text-[25px]" style={{
-        'color': 'rgba(0, 0, 0, 0.4)',
+    <nav className="backdrop-filter shadow-xl p-6 lg:py-6 lg:px-[50px] flex items-center justify-between sticky top-0 left-0 w-full z-50 transition-all duration-300">
+      <h3 className="text-[25px] text-[#1F271B] font-thin" style={{
         'fontWeight': '500',
         'letterSpacing': '-1px',
-
       }}>Umar Irale</h3>
       
       {/* Desktop menu */}
@@ -78,14 +76,12 @@ const Navbar: React.FC = () => {
           NavLinks.map((link, index) => (
             <Link
               to={link.path}
-              className="text-[18px] hover:scale-105"
+              className="text-[18px] hover:scale-105 text-[#1F271B] font-thin"
               key={index}
               onClick={(e) => scrollIntoView(e, link)} // Handle smooth scrolling onClick
               style={{
-                'color': 'rgba(0, 0, 0, 0.4)',
                 'fontWeight': '500',
                 'letterSpacing': '-1px',
-        
               }}
             >
               {link.name}
@@ -106,7 +102,7 @@ const Navbar: React.FC = () => {
               height="24"
               viewBox="0 0 24 24"
               fill="none"
-              stroke="#000000"
+              stroke="#000"
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -126,7 +122,7 @@ const Navbar: React.FC = () => {
               height="24"
               viewBox="0 0 24 24"
               fill="none"
-              stroke="#000000"
+              stroke="#000"
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -146,7 +142,7 @@ const Navbar: React.FC = () => {
           variants={menuVariants}
           initial="closed"
           animate={isOpen ? 'open' : 'closed'}
-          className="bg-white lg:hidden absolute top-[80px] right-0 w-full h-[100dvh] py-6 transition-all duration-300 ease-in-out transform"
+          className="lg:hidden absolute top-[80px] right-0 w-full h-[100dvh] py-6 transition-all duration-300 ease-in-out transform"
         >
           <div className="relative z-10 flex flex-col items-center gap-6">
             {
@@ -157,9 +153,10 @@ const Navbar: React.FC = () => {
                     toggleMenu(); // Close the mobile menu when a link is clicked
                     scrollIntoView(e, link); // Handle smooth scrolling
                   }}
+                  className="font-thin"
                   key={index}
                   style={{
-                    'color': 'rgba(0, 0, 0, 0.4)',
+                    // 'color': 'rgba(0, 0, 0, 0.4)',
                     'fontWeight': '500',
                     'letterSpacing': '-1px',
                   }}

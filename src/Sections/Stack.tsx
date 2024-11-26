@@ -34,13 +34,12 @@ const StackItem: React.FC<StackItemProps> = React.memo((props) => {
       initial="initial"
       whileHover="hover"
       variants={stackVariants}
-      className="text-white w-full h-full flex flex-col items-center justify-center cursor-pointer"
+      className="w-full h-full flex flex-col items-center justify-center cursor-pointer"
     >
       <img src={image} alt={`${text} logo`} className="w-[120px] h-[150px]" />
       <p
-        className="text-sm ml-2"
+        className="text-sm ml-2 text-dark"
         style={{
-          color: 'rgba(0, 0, 0, 0.4)',
           letterSpacing: '-1px',
         }}
       >
@@ -65,7 +64,6 @@ const Stack: React.FC<StackProps> = ({ data }) => {
         <h1
           className="text-center lg:text-5xl text-3xl"
           style={{
-            color: 'rgba(0, 0, 0, 0.4)',
             fontWeight: '500',
             letterSpacing: '-1px',
           }}
@@ -75,12 +73,11 @@ const Stack: React.FC<StackProps> = ({ data }) => {
         <p
           className="text-center text-[18px]"
           style={{
-            color: 'rgba(0, 0, 0, 0.4)',
             fontWeight: '500',
             letterSpacing: '-1px',
           }}
         >
-          Technology I Work With
+          Technologies I Work With
         </p>
       </div>
       <motion.article

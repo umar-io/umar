@@ -19,8 +19,8 @@ const Footer = () => {
   ]
   const year = new Date().getFullYear();
   return (
-    <footer className="footer bg-slate-950 w-full flex justify-between items-center p-6 lg:py-4 lg:px-[50px] bottom-0">
-      <p className="text-white lg:text-2xl text-[12px]"> &copy; {year} Umar Irale</p>
+    <footer className="footer w-full flex justify-between items-center p-6 lg:py-4 lg:px-[50px] bottom-0">
+      <p className="lg:text-[20px] font-thin text-[12px] text-white"> &copy; {year} Umar Irale</p>
       <article className="flex gap-8">
         {
           footerLink.map((footerlink, index)=>(

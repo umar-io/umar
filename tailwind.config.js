@@ -6,10 +6,6 @@ export default {
   ],
   theme: {
     extend: {
-      fontFamily: {
-        sans: ['"Courier New"', 'monospace'], // Default sans-serif
-        mono: ['"Courier New"', 'monospace'], // Mono font
-      },
     },
   },
 }
