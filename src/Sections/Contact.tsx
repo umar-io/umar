@@ -37,10 +37,6 @@ const Contact: React.FC = () => {
         }
     }
 
-    const sendResponse = (e: React.FormEvent) => {
-        e.preventDefault()
-        alert('....sending feedback')
-    }
     const steps = [
         {
             id: '1',
@@ -86,12 +82,15 @@ const Contact: React.FC = () => {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement | HTMLButtonElement>) => {
         e.preventDefault()
-        emailjs.send('service_o4ugu7g', 'template_h5j8dla', formData, 'fxukP0Fuim2mKDuK0')
+        const serviceId = import.meta.env.VITE_SERVICE_ID
+        const templateId = import.meta.env.VITE_TEMPLATE_ID
+        const userId = import.meta.env.VITE_USER_ID
+        emailjs.send(serviceId, templateId, formData, userId)
             .then((response) => {
                 setCurrentStep(0)
                 setSuccess(response.text);
                 setError('');
-                setFormData({ fullname: '', email: '', subject: '', message: '' }); // Reset form
+                setFormData({ fullname: '', email: '', subject: '', message: '' });
             })
             .catch((err) => {
                 console.error('Failed to send email:', err);
@@ -103,12 +102,12 @@ const Contact: React.FC = () => {
         <motion.section id="contact" className="w-full flex lg:flex-row flex-col justify-between items-center gap-8 lg:py-8 lg:px-8 md:py-5 md:px-5 py-3 px-3"
             initial={{ scale: 0 }}
             whileInView={{ scale: 1 }}
-            viewport={{ once: true }} // Trigger animation once when entering the viewport
+            viewport={{ once: true }} 
             transition={{ duration: 1 }}
         >
             {
                 success && (
-                    toast.success(`${success}, message sent gets back typically within few minutes!`)
+                    toast.success(`${success},  message sent typically gets response within few minutes!`)
                 )
             }
             <article className="lg:w-1/2 w-full">
@@ -116,7 +115,7 @@ const Contact: React.FC = () => {
                 <p>I'd love to hear what you're working and i would like to see how to contribute </p>
             </article>
             <aside className="lg:w-1/2 w-full">
-                <form onSubmit={sendResponse}>
+                <form onSubmit={handleSubmit}>
                     <div className="form-step">
                         <label htmlFor={steps[currentStep].id}>{steps[currentStep].label}:</label>
                         {steps[currentStep].type === 'textarea' ? (
